@@ -1,5 +1,6 @@
 package emailApp;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Email {
@@ -7,9 +8,11 @@ public class Email {
     private String lastName;
     private String password;
     private String department;
+    private String email;
     private int mailboxCapacity;
     private int defaultPasswordLength = 10;
     private String alternateEmail;
+    private String companySuffix = "kevinlinro.com";
 
     //constructor to receive firstname and lastname
     public Email(String firstName, String lastName) {
@@ -22,8 +25,12 @@ public class Email {
         System.out.println("Department : " + this.department);
 
         //method for return random password
-        this.password= randomPassword(defaultPasswordLength);
+        this.password = randomPassword(defaultPasswordLength);
         System.out.println("Your Password is : " + this.password);
+
+        //combine elements to generate email
+        email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department.toLowerCase() + "." + companySuffix;
+        System.out.println("Your email is : " + email);
     }
 
     //Ask department
